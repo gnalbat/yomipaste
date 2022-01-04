@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>YOMIPASTE</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input">
+            <textarea id="in"></textarea>
+        </div>
+        <div class="output">
+            <p id="out">
+            </p>
+        </div>
+    </div>
+    <style>
+        .container {
+            display: flex;
+            width: 100%;
+            height: 90vh;
+            gap: 1em;
+        }
+        .input{
+            width: 50%;
+            height: 100%;
+            float: left;
+            padding: 1em;
+        }
+        .output{
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+        #in {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        const input = document.getElementById('in');
+        const output = document.getElementById('out');
+
+        const inputHandler = function(e) {
+            output.innerHTML = e.target.value;
+        }
+
+        input.addEventListener('input', inputHandler);
+        input.addEventListener('propertychange', inputHandler); // for IE8
+        // Firefox/Edge18-/IE9+ don’t fire on <select><option>
+        // source.addEventListener('change', inputHandler); 
+    </script>
+</body>
