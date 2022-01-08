@@ -41,11 +41,23 @@
         }
     </style>
     <script>
+        function escapeHtml(text) {
+            var map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
         const input = document.getElementById('in');
         const output = document.getElementById('out');
 
         const inputHandler = function(e) {
-            output.innerHTML = e.target.value;
+            output.innerHTML = escapeHtml(e.target.value);
         }
 
         input.addEventListener('input', inputHandler);
