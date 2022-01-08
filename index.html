@@ -36,6 +36,9 @@
             height: 100%;
             max-width: 100%;
         }
+        #out {
+            white-space: pre-wrap;
+        }
     </style>
     <script>
         const input = document.getElementById('in');
@@ -47,7 +50,7 @@
 
         input.addEventListener('input', inputHandler);
         input.addEventListener('propertychange', inputHandler); // for IE8
-        // Firefox/Edge18-/IE9+ don’t fire on <select><option>
+        // Firefox/Edge18-/IE9+ don't fire on <select><option>
         // source.addEventListener('change', inputHandler); 
     </script>
 </body>
